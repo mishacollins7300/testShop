@@ -1,10 +1,8 @@
 <template>
   <div class="filter_block">
-    <ul>
-      <li v-for="brand of brands" :key="brand.id">
-        <a  href="javascript:void(0);" @click="chooseBrand(brand.id)">{{brand.title}}</a>
-      </li>
-    </ul>
+    <li v-for="brand of brands" :key="brand.id">
+      <a href="javascript:void(0);" @click="chooseBrand(brand.id)">{{ brand.title }}</a>
+    </li>
   </div>
 </template>
 
@@ -13,7 +11,7 @@ export default {
   name: "AFilter",
   props: {
     brands: {
-      type:  Array,
+      type: Array,
       default: null
     }
   },
@@ -28,5 +26,19 @@ export default {
 </script>
 
 <style scoped>
+.filter_block {
+  width: 100px;
+  background-color: #fff;
+}
 
+li {
+  padding: 5px;
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+  color: #333131;
+  font-size: 20px;
+}
 </style>

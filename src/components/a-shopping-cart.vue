@@ -1,8 +1,8 @@
 <template>
   <div class="shopping_cart_block">
     <img src="../assets/shopping-bag_icon-icons.com_64546.png" alt="Корзинка">
-    <span v-if="count !== 0">{{countInShopCart}}</span>
-    <p>{{ chooseProduct }}</p>
+<!--    <span v-if="count !== 0">{{countInShopCart}}</span>
+    <p>{{ chooseProduct }}</p>-->
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     countInShopCart() {
-
+      return this.count + 1;
     }
 
   },
@@ -39,5 +39,10 @@ export default {
 </script>
 
 <style scoped>
+img{
+  width: 40px;
+}
+.hopping_cart_block{
 
+}
 </style>
