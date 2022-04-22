@@ -1,8 +1,7 @@
 <template>
   <div class="shopping_cart_block">
     <img src="../assets/shopping-bag_icon-icons.com_64546.png" alt="Корзинка">
-<!--    <span v-if="count !== 0">{{countInShopCart}}</span>
-    <p>{{ chooseProduct }}</p>-->
+    <span>{{countInShopCart}}</span>
   </div>
 </template>
 
@@ -11,7 +10,7 @@ export default {
   name: "aShoppingCart",
   props:{
     chooseProduct: {
-      type: Object,
+      type: Array,
     }
   },
   data() {
@@ -20,20 +19,12 @@ export default {
       count: 0,
     }
   },
-  created() {
-
-  },
   computed: {
     countInShopCart() {
-      return this.count + 1;
+      return this.chooseProduct.length;
     }
 
   },
-  watch:{
-    countInShopCart() {
-      return 0
-    }
-  }
 
 }
 </script>

@@ -3,18 +3,19 @@
     <div class="header">
       <div class="header-item">
         <div class="logo-title">
-          <img class="logo" src="./assets/logo.png" alt="Логотип ASTRIO">
+<!--          <img class="logo" src="./assets/logo.png" alt="Логотип">-->
           <span class="header-title">SHOP</span>
         </div>
-        <a-shopping-cart :choose-product="chooseProduct"></a-shopping-cart>
+        <a-shopping-cart :choose-product="shopCart"></a-shopping-cart>
       </div>
     </div>
     <div class="main">
       <div>
+        <a href="javascript:void(0);" @click="deleteFilter">Сбросить фильтр</a>
         <a-filter :brands="brand" @filterBrand="filterBrand"></a-filter>
       </div>
       <div class="products-block">
-        <a-product-cart :products="product" :filter="filter" @addShoppCart="addShoppCart"></a-product-cart>
+        <a-product-cart :products="product" :filter="filter" :brands="brand" @addShoppCart="addShoppCart"></a-product-cart>
       </div>
     </div>
   </div>
@@ -41,6 +42,7 @@ export default {
       product: [],
       filter: {},
       chooseProduct: {},
+      shopCart : [],
 
     }
   },
@@ -53,8 +55,10 @@ export default {
       this.filter = filterBrand;
     },
     addShoppCart(chooseProduct){
-      this.chooseProduct = chooseProduct.product;
-      console.log(this.chooseProduct)
+      this.shopCart.push(chooseProduct.product);
+    },
+    deleteFilter() {
+      this.filter = {};
     }
   },
 }
